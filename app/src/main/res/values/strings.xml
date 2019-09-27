@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">WWCast</string>
+    <string name="temps_holder"> <![CDATA[<b>%d\u00B0</b> %d\u00B0 ]]></string>
+    <string name="error_loading_data">An Error Occurred, refresh to retry!</string>
+    <string name="temp_holder">%d\u00B0</string>
+    <string name="temp_stats_holder">Humidity: %d%% \u2022 Wind: %d %s</string>
+
+    <string name="location_permission_denied">Location permission denied</string>
+    <string name="enable_gps">Enable GPS, refresh to retry!</string>
+    <string name="refresh_location">Refresh to load location</string>
+
+    <string name="location_day_holder">%s \u2022 %s</string>
+    <string name="device_is_in_flight_mode">The device is in a flight mode</string>
+    <string name="high_precision_gps_na">High precision GPS N\A, try again Preferably with internet</string>
+    <string name="location_optimization_permission_not_granted">Location optimization permission not granted</string>
+    <string name="location_permission_not_granted">Location permission not granted</string>
+    <string name="loading_gps_position">Getting GPS coordinates&#8230;</string>
+    <string name="fetching_weather">Fetching weather&#8230;</string>
+    <string name="location">Location</string>
+    <string name="set_location_before_loading_weather">Set location before loading weather</string>
+
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="powered_by_dark_sky">Powered by Dark Sky</string>
+    <string name="dev_name">Developed by: Anton Makov</string>
+    <string name="dev_desc">Love to develop Android apps &amp; drink coffee all the time.</string>
+
+    <string name="feedback">Feedback</string>
+    <string name="app_feedback_subject">WWCast Feedback</string>
+    <string name="send_feedback">Send Feedback&#8230;</string>
+    <string name="settings_app_units">App units</string>
+    <string name="settings_distance_title">Distance units</string>
+    <string name="settings_temperature_title">Temperature units</string>
+
+    <string name="default_temperature_unit">fUnit</string>
+
+    <string name="default_distance_unit">MPH</string>
+
+    <string name="mph">mph</string>
+    <string name="kph">kph</string>
+
+    <string name="temperature_category">Temperature</string>
+    <string name="distance_category">Distance</string>
+    <string name="temperature_units_title">Temperature units</string>
+    <string name="distance_units_title">Distance units</string>
+
+</resources>

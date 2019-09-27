@@ -1,0 +1,20 @@
+package app.globe.com.weatherglobe.db.models
+
+import androidx.room.Entity
+import com.squareup.moshi.Json
+
+@Entity(tableName = "weather",primaryKeys = ["longitude","latitude"])
+data class Weather(
+
+	@Json(name="longitude")
+	var longitude: Double = 0.0,
+
+	@Json(name="latitude")
+	var latitude: Double = 0.0,
+
+	@Json(name="currently")
+	var currently: Currently? = null,
+
+	@Json(name="daily")
+	var daily: Daily? = null
+)
