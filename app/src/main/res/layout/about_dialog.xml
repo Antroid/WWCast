@@ -123,14 +123,14 @@
         app:layout_constraintTop_toBottomOf="@id/dev_desc" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/contact_me"
+        android:id="@+id/rate_this_app"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:gravity="center"
         android:padding="8dp"
-        android:text="@string/feedback"
+        android:text="@string/rate_this_app"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="16sp"
@@ -146,7 +146,7 @@
         android:layout_width="match_parent"
         android:layout_height="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/contact_me" />
+        app:layout_constraintTop_toBottomOf="@id/rate_this_app" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
