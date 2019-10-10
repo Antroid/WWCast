@@ -8,7 +8,7 @@ data class HourlyRes(
 	val summary: String = "",
 
 	@Json(name="data")
-	val data: List<DataItemRes?>? = null,
+	val data: List<HourlyItemRes>? = null,
 
 	@Json(name="icon")
 	val icon: String = ""

@@ -9,7 +9,7 @@ interface WeatherService {
 
     //https://api.darksky.net/forecast/[key]/[latitude],[longitude]/?currently
 
-    @GET("/forecast/{apiKey}/{locationPoint}")
-    fun getWeatherForecastResponse(@Path("apiKey") apiKey : String, @Path("locationPoint") locationPoint : String) : Single<WeatherRes>
+    @GET("/forecast/{apiKey}/{params}")
+    fun getWeatherForecastResponse(@Path("apiKey") apiKey : String, @Path("params") params : Params) : Single<WeatherRes>
 
 }

@@ -8,7 +8,7 @@ data class DailyRes(
 	val summary: String="",
 
 	@Json(name="data")
-	val data: List<DataItemRes?>? = null,
+	val data: List<DataItemRes>? = null,
 
 	@Json(name="icon")
 	val icon: String=""
