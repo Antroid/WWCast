@@ -2,6 +2,24 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <PreferenceCategory android:title="@string/date_time_category">
+
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/date"
+            android:entryValues="@array/date_value_formats"
+            android:key="@string/date_format_pref_key"
+            android:title="@string/date_format_title" />
+
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/time"
+            android:entryValues="@array/time_value_formats"
+            android:key="@string/time_format_pref_key"
+            android:title="@string/time_format_title" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/temperature_category">
         <ListPreference
             android:defaultValue="0"
