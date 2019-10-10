@@ -1,7 +1,6 @@
 package app.globe.com.weatherglobe.utils
 
 import app.globe.com.weatherglobe.R
-import java.util.*
 
 class DataItemUtil
 {
@@ -53,13 +52,6 @@ class DataItemUtil
                 }
             }
             return res
-        }
-
-        fun getDayOfWeek(time : Long, dayFormat : Int) : String
-        {
-            val cal = GregorianCalendar()
-            cal.timeInMillis = time * 1000
-            return cal.getDisplayName(Calendar.DAY_OF_WEEK, dayFormat, Locale.getDefault())
         }
 
         fun toCelsius(fahrenheit : Double) : Double{
