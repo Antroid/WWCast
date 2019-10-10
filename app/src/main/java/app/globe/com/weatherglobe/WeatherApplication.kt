@@ -30,10 +30,11 @@ class WeatherApplication : DaggerApplication()
         if (DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-
-        val builder = CoreConfigurationBuilder(this)
-        builder.setBuildConfigClass(BuildConfig::class.java).setReportFormat(StringFormat.JSON)
-        ACRA.init(this,builder)
+        if(!DEBUG) {
+            val builder = CoreConfigurationBuilder(this)
+            builder.setBuildConfigClass(BuildConfig::class.java).setReportFormat(StringFormat.JSON)
+            ACRA.init(this, builder)
+        }
     }
 
 }
