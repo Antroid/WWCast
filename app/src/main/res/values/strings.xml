@@ -1,15 +1,16 @@
 <resources>
     <string name="app_name">WWCast</string>
-    <string name="temps_holder"> <![CDATA[<b>%d\u00B0</b> %d\u00B0 ]]></string>
     <string name="error_loading_data">An Error Occurred, refresh to retry!</string>
     <string name="temp_holder">%d\u00B0</string>
-    <string name="temp_stats_holder">Humidity: %d%% \u2022 Wind: %d %s</string>
+    <string name="humidity_holder">%d%%</string>
+    <string name="wind_speed_holder">%d %s</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind_speed">Wind Speed</string>
 
     <string name="location_permission_denied">Location permission denied</string>
     <string name="enable_gps">Enable GPS, refresh to retry!</string>
     <string name="refresh_location">Refresh to load location</string>
 
-    <string name="location_day_holder">%s \u2022 %s</string>
     <string name="device_is_in_flight_mode">The device is in a flight mode</string>
     <string name="high_precision_gps_na">High precision GPS N\A, try again Preferably with internet</string>
     <string name="location_optimization_permission_not_granted">Location optimization permission not granted</string>
@@ -25,7 +26,7 @@
     <string name="dev_name">Developed by: Anton Makov</string>
     <string name="dev_desc">Love to develop Android apps &amp; drink coffee all the time.</string>
 
-    <string name="feedback">Feedback</string>
+    <string name="rate_this_app">Rate This App</string>
     <string name="app_feedback_subject">WWCast Feedback</string>
     <string name="send_feedback">Send Feedback&#8230;</string>
     <string name="settings_app_units">App units</string>
@@ -41,7 +42,25 @@
 
     <string name="temperature_category">Temperature</string>
     <string name="distance_category">Distance</string>
+    <string name="date_time_category">Date &amp; Time</string>
+
     <string name="temperature_units_title">Temperature units</string>
     <string name="distance_units_title">Distance units</string>
+    <string name="date_format_title">Date</string>
+    <string name="time_format_title">Time</string>
 
+    <string name="summery">Summery</string>
+    <string name="cloud_cover">Cloud cover</string>
+    <string name="wind_gust">Wind gust</string>
+    <string name="uv_index">UV index</string>
+
+
+    <string name="today">Today</string>
+    <string name="cloud_cover_holder">%d%%</string>
+
+
+    <!--bottom nav menu-->
+    <string name="home_bottom_nav">Home</string>
+    <string name="forecast_bottom_nav">Forecast</string>
+    <string name="locations_bottom_nav">Locations</string>
 </resources>

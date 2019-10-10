@@ -22,4 +22,26 @@
         <item name="1">1</item>
     </string-array>
 
+
+    <string-array name="time">
+        <item name="0">12 Hour Format</item>
+        <item name="1">24 Hour Format</item>
+    </string-array>
+
+
+    <string-array name="time_value_formats">
+        <item name="0">0</item>
+        <item name="1">1</item>
+    </string-array>
+
+    <string-array name="date">
+        <item name="0">mm/dd/yyyy</item>
+        <item name="1">dd/mm/yyyy</item>
+    </string-array>
+
+    <string-array name="date_value_formats">
+        <item name="0">0</item>
+        <item name="1">1</item>
+    </string-array>
+
 </resources>

@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">@android:color/transparent</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="precipitationColor">#0198E1</color>
     <color name="location_fill_color">#2958A1</color>
     <color name="dim_about_dialog">#99323232</color>
+
+    <color name="initial_status_bar_color">#FAFAFA</color>
+<!--    <color name="initial_status_bar_color">@android:color/transparent</color>-->
+    <!--background gradients-->
+
+    <color name="start_yellow">#FF8C00</color>
+    <color name="end_yellow">#F8CC38</color>
+
+    <color name="start_blue">#1694CF</color>
+    <color name="end_blue">#42C6F6</color>
+
+    <color name="start_red">#8b2068</color>
+    <color name="end_red">#ED2178</color>
+
+    <color name="start_purple">#662E93</color>
+    <color name="end_purple">#95268F</color>
+
+    <color name="start_green">#129047</color>
+    <color name="end_green">#8CC844</color>
+
+    <color name="start_turquoise">#018786</color>
+    <color name="end_turquoise">#03DAC6</color>
+
+    <color name="start_grey">#778899</color>
+    <color name="end_grey">#BBC3CC</color>
+
+    <color name="separator_background">#80FFFFFF</color>
+
+    <color name="forecast_color_text">#A0FFFFFF</color>
+
 </resources>

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--shared preferences-->
+    <string name="last_time_app_was_opened_key">last_time_app_was_opened_key</string>
+
+    <!--settings-->
     <string name="temperature_unit_pref_key">temperature_unit_pref_key</string>
     <string name="distance_unit_pref_key">distance_unit_pref_key</string>
+
+    <string name="time_format_pref_key">time_format_pref_key</string>
+    <string name="date_format_pref_key">date_format_pref_key</string>
+
 </resources>
