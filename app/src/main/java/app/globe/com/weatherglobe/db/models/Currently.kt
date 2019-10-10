@@ -1,6 +1,5 @@
 package app.globe.com.weatherglobe.db.models
 
-import androidx.room.Ignore
 import com.squareup.moshi.Json
 
 data class Currently(
@@ -20,7 +19,16 @@ data class Currently(
 	@Json(name="windSpeed")
 	var windSpeed: Double = 0.0,
 
-	@Ignore
-	var windUnits : String=""
+	@Json(name="icon")
+	var icon :String ="",
+
+	@Json(name="cloudCover")
+	var cloudCover : Double=0.0,
+
+	@Json(name="windGust")
+	var windGust : Double = 0.0,
+
+	@Json(name="uvIndex")
+	var uvIndex : Int = 0
 
 )

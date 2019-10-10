@@ -7,7 +7,7 @@ import app.globe.com.weatherglobe.db.models.Weather
 
 
 @Database(entities = [Weather::class],
-    version = 1, exportSchema = false)
+    version = 2, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 

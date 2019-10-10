@@ -1,9 +1,7 @@
 package app.globe.com.weatherglobe.db
 
 import androidx.room.TypeConverter
-import app.globe.com.weatherglobe.db.models.Currently
-import app.globe.com.weatherglobe.db.models.Daily
-import app.globe.com.weatherglobe.db.models.DataItem
+import app.globe.com.weatherglobe.db.models.*
 import com.google.gson.Gson
 
 class Converters {
@@ -32,6 +30,19 @@ class Converters {
         return  objects.toList()
     }
 
+
+    @TypeConverter
+    fun hourlyItemListToJson(value : List<HourlyItem>) : String{
+        return Gson().toJson(value)
+    }
+
+    @TypeConverter
+    fun jsonToHoulyItemList(value : String) : List<HourlyItem>
+    {
+        val objects = Gson().fromJson(value, Array<HourlyItem>::class.java) as Array<HourlyItem>
+        return  objects.toList()
+    }
+
     @TypeConverter
     fun dailyToJson(value : Daily) : String{
         return Gson().toJson(value)
@@ -41,6 +52,17 @@ class Converters {
     fun jsonToDaily(value : String) : Daily
     {
         return Gson().fromJson(value, Daily::class.java) as Daily
+    }
+
+    @TypeConverter
+    fun hourlyToJson(value : Hourly) : String{
+        return Gson().toJson(value)
+    }
+
+    @TypeConverter
+    fun jsonToHourly(value : String) : Hourly
+    {
+        return Gson().fromJson(value, Hourly::class.java) as Hourly
     }
 
 }
