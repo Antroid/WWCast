@@ -33,6 +33,7 @@ class ApplicationModule {
     @Singleton
     fun provideApplicationDataBase(application: Application): AppDatabase {
         return Room.databaseBuilder(application, AppDatabase::class.java, DB_NAME)
+            .fallbackToDestructiveMigration()
             .build()
     }
 

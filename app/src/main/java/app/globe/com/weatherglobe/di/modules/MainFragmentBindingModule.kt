@@ -1,6 +1,7 @@
 package app.globe.com.weatherglobe.di.modules
 
-import app.globe.com.weatherglobe.ui.fragments.weather.WeatherFragment
+import app.globe.com.weatherglobe.ui.fragments.forecast.ForecastFragment
+import app.globe.com.weatherglobe.ui.fragments.home.HomeFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -9,8 +10,10 @@ import dagger.android.ContributesAndroidInjector
 abstract class MainFragmentBindingModule {
 
     @ContributesAndroidInjector
-    internal abstract fun provideWeatherFragment(): WeatherFragment
+    internal abstract fun provideWeatherFragment(): HomeFragment
 
+    @ContributesAndroidInjector
+    internal abstract fun provideForecastFragment(): ForecastFragment
 
 
 }

@@ -3,10 +3,7 @@ package app.globe.com.weatherglobe.di.modules
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import app.globe.com.weatherglobe.di.scope.ViewModelKey
-import app.globe.com.weatherglobe.viewmodels.AboutViewModel
-import app.globe.com.weatherglobe.viewmodels.SettingsViewModel
-import app.globe.com.weatherglobe.viewmodels.ViewModelFactory
-import app.globe.com.weatherglobe.viewmodels.WeatherViewModel
+import app.globe.com.weatherglobe.viewmodels.*
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -17,8 +14,18 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
+    @ViewModelKey(TimeViewModel::class)
+    abstract fun bindTimeViewModel(timeViewModel: TimeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
     @ViewModelKey(WeatherViewModel::class)
     abstract fun bindWeatherViewModel(weatherViewModel: WeatherViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeViewModel::class)
+    abstract fun bindHomeViewModel(homeViewModel : HomeViewModel): ViewModel
 
     @Binds
     @IntoMap
