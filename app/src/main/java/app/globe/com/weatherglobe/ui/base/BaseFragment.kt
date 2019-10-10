@@ -5,13 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import butterknife.ButterKnife
-import butterknife.Unbinder
 import dagger.android.support.DaggerFragment
 
 abstract class BaseFragment : DaggerFragment() {
-
-    private var unbinder: Unbinder? = null
 
     @LayoutRes
     protected abstract fun layoutRes(): Int
@@ -21,16 +17,26 @@ abstract class BaseFragment : DaggerFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(layoutRes(), container, false)
-        unbinder = ButterKnife.bind(this, view)
-        return view
+        return inflater.inflate(layoutRes(), container, false)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        if (unbinder != null) {
-            unbinder!!.unbind()
-            unbinder = null
-        }
+    //for init viewmodels, shared prefs defaults etc..
+    abstract fun initLogic()
+
+    //for init ui elements
+    abstract fun initUI()
+
+    //for observables that will be used for populating fields from internet/database calls
+    abstract fun initObservables()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initUI()
+        initLogic()
     }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        initObservables()
+    }
+
 }

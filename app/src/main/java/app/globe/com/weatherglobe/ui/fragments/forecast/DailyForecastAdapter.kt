@@ -1,28 +1,24 @@
-package app.globe.com.weatherglobe.ui.fragments.weather
+package app.globe.com.weatherglobe.ui.fragments.forecast
 
-import android.annotation.SuppressLint
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.NonNull
-import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 import app.globe.com.weatherglobe.R
 import app.globe.com.weatherglobe.db.models.DataItem
 import app.globe.com.weatherglobe.utils.DataItemUtil
-import butterknife.BindView
-import butterknife.ButterKnife
+import app.globe.com.weatherglobe.utils.DateTimeUtil
 import java.util.*
 import kotlin.collections.ArrayList
 
 
-class DailyForecastAdapter internal constructor(
+class DailyForecastAdapter internal constructor(private val tempInCelsius : Boolean,
     private val daySelectedListener: DaySelectedListener
 ) : RecyclerView.Adapter<DailyForecastAdapter.WeatherViewHolder>() {
-    private var data = ArrayList<DataItem>()
+    private var data : List<DataItem> = ArrayList()
 
     init {
         setHasStableIds(true)
@@ -36,10 +32,11 @@ class DailyForecastAdapter internal constructor(
     @NonNull
     override fun onCreateViewHolder(@NonNull parent: ViewGroup, viewType: Int): WeatherViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.weather_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.forecast_daily_item, parent, false)
         return WeatherViewHolder(
             view,
-            daySelectedListener
+            daySelectedListener,
+            tempInCelsius
         )
     }
 
@@ -57,25 +54,19 @@ class DailyForecastAdapter internal constructor(
         notifyDataSetChanged()
     }
 
-    class WeatherViewHolder(itemView: View, daySelectedListener: DaySelectedListener) :
+    class WeatherViewHolder(itemView: View, daySelectedListener: DaySelectedListener,private val tempInCelsius : Boolean) :
         RecyclerView.ViewHolder(itemView) {
 
-        @BindView(R.id.day_txt)
-        lateinit var dayText: TextView
+        var dayText: TextView = itemView.findViewById(R.id.day_txt)
+        var dayImage: ImageView = itemView.findViewById(R.id.day_icon)
+        var dayPrecipitationText: TextView = itemView.findViewById(R.id.day_precipitation)
+        var dayTemperaturesMaxText : TextView = itemView.findViewById(R.id.day_temperature_max)
+        var dayTemperaturesMinText: TextView = itemView.findViewById(R.id.day_temperature_min)
 
-        @BindView(R.id.day_icon)
-        lateinit var dayImage: ImageView
-
-        @BindView(R.id.day_precipitation)
-        lateinit var dayPrecipitationText: TextView
-
-        @BindView(R.id.day_temperatures)
-        lateinit var dayTemperaturesText: TextView
 
         private var dataItem: DataItem? = null
 
         init {
-            ButterKnife.bind(this, itemView)
             itemView.setOnClickListener {
                 if (dataItem != null) {
                     daySelectedListener.onDaySelect(dataItem!!)
@@ -83,17 +74,25 @@ class DailyForecastAdapter internal constructor(
             }
         }
 
-        @SuppressLint("WrongConstant", "InlinedApi")
         fun bind(dataItem: DataItem) {
             this.dataItem = dataItem
 
-            dayText.text = DataItemUtil.getDayOfWeek(dataItem.time,Calendar.SHORT)
+            dayText.text = DateTimeUtil.getDayOfWeekToday(dayText.context,dataItem.time*1000,Calendar.SHORT)
             dayImage.setImageResource(DataItemUtil.getDayIcon(dataItem.icon))
             dayPrecipitationText.text = String.format("%d%%",(dataItem.precipProbability*100).toInt())
-            val con = dayTemperaturesText.context
-            val tempHolder = String.format(con.getString(R.string.temps_holder),
-                dataItem.apparentTemperatureMax.toInt(), dataItem.apparentTemperatureMin.toInt())
-            dayTemperaturesText.text = HtmlCompat.fromHtml(tempHolder, Html.FROM_HTML_MODE_LEGACY)
+
+
+            val temperatureMax = if(tempInCelsius) DataItemUtil.toCelsius(dataItem.apparentTemperatureMax) else dataItem.apparentTemperatureMax
+            val temperatureMin = if(tempInCelsius) DataItemUtil.toCelsius(dataItem.apparentTemperatureMin) else dataItem.apparentTemperatureMin
+
+
+            val con = dayTemperaturesMaxText.context
+            val tempMax = String.format(con.getString(R.string.temp_holder), temperatureMax.toInt())
+            val tempMin = String.format(con.getString(R.string.temp_holder), temperatureMin.toInt())
+
+            dayTemperaturesMaxText.text = tempMax
+            dayTemperaturesMinText.text = tempMin
+
         }
     }
 }

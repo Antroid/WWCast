@@ -48,6 +48,32 @@ class SettingsFragment : PreferenceFragmentCompat(), HasAndroidInjector {
     override fun onCreatePreferences(bundle: Bundle?, string: String?) {
         addPreferencesFromResource(R.xml.preferences)
 
+        val datePrefs : ListPreference? = findPreference(getString(R.string.date_format_pref_key))
+        val dateIndexFormat = preferenceScreen.sharedPreferences.getString(getString(R.string.date_format_pref_key), "0")
+        val arrDateFormats = resources.getStringArray(R.array.date)
+        datePrefs!!.summary = arrDateFormats[dateIndexFormat!!.toInt()]
+
+        datePrefs.setOnPreferenceChangeListener { preference, newValue ->
+
+            val newDateFormatIndex = newValue.toString().toInt()
+
+            preference.summary = arrDateFormats[newDateFormatIndex]
+            true
+        }
+
+        val timePrefs : ListPreference? = findPreference(getString(R.string.time_format_pref_key))
+        val timeIndexFormat = preferenceScreen.sharedPreferences.getString(getString(R.string.time_format_pref_key), "0")
+        val arrTimeFormats = resources.getStringArray(R.array.time)
+        timePrefs!!.summary = arrTimeFormats[timeIndexFormat!!.toInt()]
+
+        timePrefs.setOnPreferenceChangeListener { preference, newValue ->
+
+            val newTimeFormatIndex = newValue.toString().toInt()
+
+            preference.summary = arrTimeFormats[newTimeFormatIndex]
+            true
+        }
+
 
         val tempPrefs : ListPreference? = findPreference(getString(R.string.temperature_unit_pref_key))
         val tempIndexUnit = preferenceScreen.sharedPreferences.getString(getString(R.string.temperature_unit_pref_key), "0")
@@ -80,6 +106,11 @@ class SettingsFragment : PreferenceFragmentCompat(), HasAndroidInjector {
             showAboutDialog()
             true
         }
+
+
+
+
+
 
     }
 
